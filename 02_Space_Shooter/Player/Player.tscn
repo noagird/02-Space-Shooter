@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/ships_human.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Exhaust.png" type="Texture" id=2]
+[ext_resource path="res://Player/Player.gd" type="Script" id=3]
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 507, 310 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Player" type="Sprite" parent="."]
+position = Vector2( 0, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 142, 33, 46 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Exhaust" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, 40 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( 0, -140 )
+polygon = PoolVector2Array( -3, 119, -11, 138, -12, 142, -18, 144, -18, 159, -15, 161, -13, 161, -11, 160, -9, 159, -2.5, 164.5, 1.5, 164.5, 7, 161, 9, 160, 11.5, 160.5, 13.5, 160.5, 17, 160, 18, 156, 18, 145, 13.5, 143.5, 11, 142, 8, 131, 8, 126, 2, 118 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, -140 )
+polygon = PoolVector2Array( -1.5, 119.5, -4, 121, -6, 125, -10.5, 138.5, -10.5, 143.5, -16.5, 144.5, -16.5, 158.5, -14.5, 160.5, -12.5, 160.5, -10.5, 156.5, -9.5, 156.5, -2.5, 164.5, 1.5, 164.5, 6.5, 160.5, 6.5, 157.5, 11.5, 160.5, 13.5, 160.5, 15.5, 156.5, 16.5, 156.5, 16.5, 144.5, 13.5, 143.5, 9.5, 143.5, 6.5, 130.5, 6.5, 126.5, 4, 122, -1.5, 118.5 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Asteroids.png" type="Texture" id=1]
+[ext_resource path="res://Asteroid/Asteroid.gd" type="Script" id=2]
+
+[node name="Asteroid" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Asteroid" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 175, 193, 34, 46 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 174, -191 )
+polygon = PoolVector2Array( -176, 169, -191, 191.5, -192, 191.5, -189, 211.5, -189, 213.5, -171, 215, -171, 215, -163, 199.5, -163, 196.5, -157, 193, -157, 178, -160, 170, -162, 167, -174, 167 )
